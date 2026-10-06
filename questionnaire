@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survey / ちょうさ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EEF5EC;
+    --surface: #FFFFFF;
+    --mint: #DDEFE2;
+    --mint-line: #BFDDC8;
+    --leaf: #2F7A52;
+    --leaf-dark: #1F5A3D;
+    --ink: #26332B;
+    --muted: #5E6E64;
+    --sun: #F6C94C;
+    --sun-soft: #FFF6D9;
+    --warn: #8A5300;
+    --radius-l: 22px;
+    --radius-m: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.85;
+    font-size: 16px;
+  }
+  h1, h2, h3, .round { font-family: "M PLUS Rounded 1c", "BIZ UDPGothic", sans-serif; }
+  a { color: var(--leaf-dark); }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px 48px; }
+  .hidden { display: none !important; }
+
+  /* ---------- Welcome / language selection ---------- */
+  .welcome { padding: 48px 0 24px; text-align: center; }
+  .hello {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px;
+    margin: 0 auto 28px; max-width: 520px;
+  }
+  .hello span {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    background: var(--surface);
+    border: 2px solid var(--mint-line);
+    color: var(--leaf-dark);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 15px;
+  }
+  .hello span:nth-child(3n+2) { background: var(--mint); }
+  .hello span:nth-child(4n) { background: var(--sun-soft); border-color: #F0DB98; }
+  .welcome h1 { font-size: 26px; line-height: 1.45; color: var(--leaf-dark); font-weight: 800; }
+  .welcome h1 .ja { display: block; font-size: 19px; font-weight: 700; margin-top: 6px; color: var(--leaf); }
+  .welcome .lead { margin-top: 14px; color: var(--muted); font-size: 15px; }
+  .lang-card {
+    background: var(--surface);
+    border-radius: var(--radius-l);
+    padding: 28px 20px 24px;
+    margin-top: 28px;
+    box-shadow: 0 6px 0 var(--mint-line);
+  }
+  .lang-card p { font-size: 17px; }
+  .lang-buttons { display: grid; gap: 14px; margin-top: 18px; }
+  .lang-btn {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 21px;
+    color: #fff;
+    background: var(--leaf);
+    border: none;
+    border-radius: var(--radius-m);
+    padding: 16px 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--leaf-dark);
+    transition: transform .08s, box-shadow .08s;
+  }
+  .lang-btn small { display: block; font-size: 13px; font-weight: 500; opacity: .9; }
+  .lang-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--leaf-dark); }
+  .meta-line { margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+  /* ---------- Page header ---------- */
+  .topbar { display: flex; justify-content: space-between; align-items: center; padding: 14px 0 0; font-size: 14px; }
+  .topbar button {
+    background: var(--surface); border: 2px solid var(--mint-line); color: var(--leaf-dark);
+    border-radius: 999px; padding: 4px 14px; font: inherit; font-weight: 700; cursor: pointer;
+  }
+  .hero { padding: 26px 0 8px; }
+  .hero .kicker { color: var(--leaf); font-weight: 700; font-size: 15px; }
+  .hero h1 { font-size: 26px; line-height: 1.45; color: var(--leaf-dark); font-weight: 800; margin-top: 4px; }
+  .hero p { margin-top: 12px; }
+  .time-chip {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+    background: var(--sun-soft); border: 2px solid #F0DB98; color: var(--warn);
+    border-radius: 999px; padding: 4px 14px; font-weight: 700; font-size: 15px;
+  }
+
+  /* ---------- Key points ---------- */
+  .points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 22px 0 8px; }
+  .point {
+    background: var(--surface);
+    border-radius: var(--radius-m);
+    padding: 16px 14px;
+  }
+  .point svg { width: 34px; height: 34px; color: var(--leaf); }
+  .point h3 { font-size: 16px; color: var(--leaf-dark); margin: 6px 0 2px; line-height: 1.4; }
+  .point p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* ---------- Steps ---------- */
+  .block { background: var(--surface); border-radius: var(--radius-l); padding: 24px 20px; margin-top: 20px; }
+  .block > h2 { font-size: 20px; color: var(--leaf-dark); margin-bottom: 12px; }
+  .steps { list-style: none; counter-reset: s; }
+  .steps li { counter-increment: s; position: relative; padding: 4px 0 14px 46px; }
+  .steps li::before {
+    content: counter(s);
+    position: absolute; left: 0; top: 2px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--mint); color: var(--leaf-dark);
+    font-family: "M PLUS Rounded 1c", sans-serif; font-weight: 800;
+    display: grid; place-items: center;
+  }
+  .steps li:not(:last-child)::after {
+    content: ""; position: absolute; left: 15px; top: 36px; bottom: 2px; width: 2px; background: var(--mint-line);
+  }
+  .once { color: var(--warn); font-weight: 700; }
+
+  /* ---------- Details (full explanation) ---------- */
+  .details-intro { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+  details { border-top: 2px solid var(--mint); }
+  details:last-of-type { border-bottom: 2px solid var(--mint); }
+  summary {
+    list-style: none; cursor: pointer;
+    padding: 14px 36px 14px 2px; position: relative;
+    font-family: "M PLUS Rounded 1c", sans-serif; font-weight: 700; font-size: 16px; color: var(--leaf-dark);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    width: 26px; height: 26px; border-radius: 50%; background: var(--mint);
+    display: grid; place-items: center; font-size: 18px; line-height: 1;
+  }
+  details[open] summary::after { content: "−"; }
+  .d-body { padding: 0 2px 16px; }
+  .d-body p { margin-bottom: 8px; }
+  .d-body ul { margin: 0 0 8px 1.3em; }
+  .d-body li { margin-bottom: 4px; }
+  .dl-link {
+    display: inline-block; margin: 6px 0 10px; padding: 8px 16px;
+    border: 2px solid var(--leaf); border-radius: 999px; text-decoration: none; font-weight: 700;
+  }
+  .open-all { background: none; border: none; color: var(--leaf-dark); text-decoration: underline; font: inherit; font-size: 14px; cursor: pointer; margin-top: 10px; }
+  .contact p { margin-bottom: 2px; }
+
+  /* ---------- Consent: ticket ---------- */
+  .consent { background: var(--surface); border-radius: var(--radius-l); padding: 26px 20px 24px; margin-top: 20px; border: 3px solid var(--leaf); }
+  .consent h2 { font-size: 21px; color: var(--leaf-dark); text-align: center; }
+  .consent .sub { text-align: center; margin-top: 6px; font-size: 15px; }
+  .ticket {
+    position: relative;
+    margin: 20px auto 6px; max-width: 360px;
+    background: var(--sun);
+    border-radius: 16px;
+    padding: 16px 18px 14px;
+    text-align: center;
+  }
+  .ticket::before, .ticket::after {
+    content: ""; position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--surface); transform: translateY(-50%);
+  }
+  .ticket::before { left: -11px; }
+  .ticket::after { right: -11px; }
+  .ticket .label { font-size: 14px; font-weight: 700; color: #5A4200; }
+  .ticket .rid {
+    font-family: "M PLUS Rounded 1c", monospace; font-weight: 800;
+    font-size: 34px; letter-spacing: 5px; color: #2B2200;
+    border-top: 2px dashed #C9A230; border-bottom: 2px dashed #C9A230;
+    margin: 8px 0; padding: 4px 0; user-select: all;
+  }
+  .copy-btn {
+    background: #fff; border: none; border-radius: 999px; padding: 4px 16px;
+    font: inherit; font-weight: 700; font-size: 14px; color: #5A4200; cursor: pointer;
+  }
+  .id-warn { text-align: center; color: var(--warn); font-weight: 700; margin-top: 12px; font-size: 15px; }
+  .id-note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .checks { margin: 20px 0 8px; display: grid; gap: 10px; }
+  .checks label {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--bg); border-radius: 12px; padding: 12px 14px; cursor: pointer; line-height: 1.6;
+  }
+  .checks input { flex: none; width: 22px; height: 22px; margin-top: 2px; accent-color: var(--leaf); }
+  .go {
+    display: block; text-align: center; margin-top: 16px;
+    font-family: "M PLUS Rounded 1c", sans-serif; font-weight: 800; font-size: 20px;
+    background: var(--leaf); color: #fff; text-decoration: none;
+    border-radius: var(--radius-m); padding: 16px; box-shadow: 0 4px 0 var(--leaf-dark);
+  }
+  .go.disabled { background: #B9C6BE; box-shadow: 0 4px 0 #9AA89F; cursor: not-allowed; }
+  .go-hint { text-align: center; font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .decline { display: block; text-align: center; margin-top: 14px; font-size: 14px; color: var(--muted); cursor: pointer; }
+
+  .foot { text-align: center; font-size: 12px; color: var(--muted); padding: 26px 0 0; }
+
+  @media (min-width: 560px) {
+    .points { grid-template-columns: repeat(4, 1fr); }
+    .welcome h1, .hero h1 { font-size: 30px; }
+  }
+  @media (max-width: 360px) {
+    .points { grid-template-columns: 1fr; }
+    .ticket .rid { font-size: 28px; letter-spacing: 3px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    .topbar, .go, .decline, .copy-btn, .open-all, .lang-card { display: none !important; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     Welcome / language selection
+     ========================================================= -->
+<div id="screen-select" class="wrap">
+  <div class="welcome">
+    <div class="hello" aria-hidden="true">
+      <span>Hello</span><span>Xin chào</span><span>你好</span><span>नमस्ते</span>
+      <span>Kumusta</span><span>안녕하세요</span><span>Olá</span><span>Halo</span><span>こんにちは</span>
+    </div>
+    <h1>Tell us how you prepare for disasters
+      <span class="ja">さいがいの そなえを おしえて ください</span></h1>
+    <p class="lead">A survey for foreign residents of Tokorozawa<br>ところざわに すむ がいこくじんの ための ちょうさ</p>
+    <div class="lang-card">
+      <p>Please choose a language.<br>ことばを えらんで ください。</p>
+      <div class="lang-buttons">
+        <button class="lang-btn" onclick="showLang('en')">English</button>
+        <button class="lang-btn" onclick="showLang('easy')">やさしい にほんご<small>Easy Japanese</small></button>
+      </div>
+      <p class="meta-line">About 20–25 minutes ／ 20〜25ふん ぐらい</p>
+    </div>
+  </div>
+  <p class="foot">National Defense Medical College, Department of Nursing<br>ぼうえい いか だいがっこう かんご がっか</p>
+</div>
+
+<!-- =========================================================
+     English
+     ========================================================= -->
+<div id="screen-en" class="wrap hidden" lang="en">
+  <div class="topbar">
+    <span class="round" style="color:var(--leaf);font-weight:700;">Survey information</span>
+    <button onclick="showLang('easy')">やさしい にほんご</button>
+  </div>
+
+  <div class="hero">
+    <p class="kicker">For foreign residents of Tokorozawa</p>
+    <h1>Help us make disaster support work better for you</h1>
+    <p>We want to learn how foreign residents get disaster information, who they can rely on, and how they prepare. Your answers will help create disaster-preparedness classes and local support for foreign residents.</p>
+    <span class="time-chip">⏱ About 20–25 minutes on your phone</span>
+  </div>
+
+  <div class="points">
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      <h3>Anonymous</h3>
+      <p>We do not ask your name, address, nationality, or residence status.</p>
+    </div>
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+      <h3>Your choice</h3>
+      <p>Your Japanese class will not know whether you answered.</p>
+    </div>
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      <h3>Skip freely</h3>
+      <p>You may skip any question or stop at any time.</p>
+    </div>
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      <h3>Changeable</h3>
+      <p>With your reception number, you can withdraw your answers later.</p>
+    </div>
+  </div>
+
+  <section class="block">
+    <h2>How to take part</h2>
+    <ol class="steps">
+      <li>Read this page. Open the sections below for full details.</li>
+      <li>Save your reception number (screenshot or note).</li>
+      <li>Check the five boxes and answer the questionnaire. Please answer <span class="once">only once</span>, even if you attend more than one Japanese class.</li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2>Full explanation</h2>
+    <p class="details-intro">Tap each item to read it.</p>
+
+    <details><summary>1. Title of the study</summary><div class="d-body">
+      <p>“An exploratory study of risk literacy among foreign residents in Japan: Associations of information literacy, social networks, and social isolation in a non-disaster period”</p>
+      <p>This study has been reviewed by the Ethics Committee and approved by the President of the National Defense Medical College.</p>
+    </div></details>
+
+    <details><summary>2. Researchers</summary><div class="d-body">
+      <p>Principal investigator: Kimiko Hayano, Professor, Department of Nursing, National Defense Medical College</p>
+      <p>Co-investigators: Yuji Iwama, Lecturer; Madoka Muro, Assistant Professor (Department of Nursing, National Defense Medical College)</p>
+      <p>Collaborator: Kayoko Kawahara, Professor, Tokyo Metropolitan University (advice on data analysis)</p>
+    </div></details>
+
+    <details><summary>3. Purpose of the study</summary><div class="d-body">
+      <p>Japan often experiences disasters such as earthquakes and typhoons. Because of language barriers and fewer connections with the local community, foreign residents may find it hard to get the information they need and to evacuate during a disaster.</p>
+      <p>In this study, during normal times (when there is no disaster), we will examine how foreign residents’ ability to handle information (information and health literacy), their connections with other people, and their feelings of isolation relate to how easily they can get disaster information and how well they are prepared for disasters.</p>
+    </div></details>
+
+    <details><summary>4. What you will be asked to do</summary><div class="d-body">
+      <p>You will answer an online questionnaire once. The questions are about you (age, region of origin, Japanese ability, etc.), your connections with other people, how you get information, your experience of and preparation for disasters, your confidence in evacuating, how you use the Internet and health information, and your recent contact with other people. It takes about 20–25 minutes.</p>
+      <p>Study period: from the date of approval until March 31, 2029 (the survey is open until March 31, 2028).</p>
+    </div></details>
+
+    <details><summary>5. Why we are asking you</summary><div class="d-body">
+      <p>We are asking people of foreign nationality aged 18 or older who live in Tokorozawa City or attend a Japanese class in Tokorozawa City, and who can answer by themselves in English or Easy Japanese.</p>
+    </div></details>
+
+    <details><summary>6. Burdens, risks, and benefits</summary><div class="d-body">
+      <p>There is no physical burden or risk. The burden is the time needed to answer.</p>
+      <p>Some questions ask about past disasters, which may remind you of difficult experiences. We will not ask about details of damage. You may skip any question or stop at any time.</p>
+      <p>If you need support with your feelings or daily life, you can contact:</p>
+      <ul>
+        <li>Saitama Foreign Residents Comprehensive Consultation Center (many languages, including English): 048-833-3296 (Mon–Fri 9:00–16:00)</li>
+        <li>TELL Lifeline (counseling in English): 0800-300-8355</li>
+      </ul>
+      <p>There is no direct benefit to you, but your answers will help improve disaster support for foreign residents.</p>
+    </div></details>
+
+    <details><summary>7. Consent and withdrawal</summary><div class="d-body">
+      <p>Taking part is your free choice. If you do not take part or stop partway, you will not be disadvantaged in any way. Your Japanese class teachers and organizations will not be told who answered.</p>
+      <p>You can withdraw at any time. The reception number shown on this page is the only way to find your answers. To withdraw, download the withdrawal form, write your reception number on it, and send it to the contact below by post or email. We will find and delete your answers using the number.</p>
+      <a href="consent_withdrawal_en.pdf" class="dl-link" download>Download the withdrawal form (PDF)</a>
+      <p>If you lose your reception number, we cannot find your answers, so we cannot withdraw them. After the results have been presented at a conference or published, your answers cannot be removed from those results.</p>
+      <p>If you send the form by email, your email address will be used only for the withdrawal procedure, will not be linked to your answers, and will be deleted promptly after the procedure.</p>
+    </div></details>
+
+    <details><summary>8. Publication of the study</summary><div class="d-body">
+      <p>The results will be presented at academic conferences and in journals. As this is not an intervention study, it will not be registered as a clinical trial.</p>
+    </div></details>
+
+    <details><summary>9. Viewing the research protocol</summary><div class="d-body">
+      <p>If you wish to see the research protocol or documents describing the methods, we can show them as long as this does not affect other participants’ personal information or the conduct of the study. Please contact us.</p>
+    </div></details>
+
+    <details><summary>10. Protection of personal information</summary><div class="d-body">
+      <p>This survey does not ask for any information that could identify you, such as your name, address, or email address. Internet connection information (such as your IP address) is not recorded. We will not ask about your nationality or residence status. Your answers are linked only to the reception number, so you cannot be identified.</p>
+      <p>Answers are collected through Google Forms and temporarily stored on Google’s servers. Researchers regularly download them to a password-protected computer at the College and then delete them from the servers. When we report results, any group with fewer than 5 people will be combined with other groups.</p>
+    </div></details>
+
+    <details><summary>11. Storage and disposal of data</summary><div class="d-body">
+      <p>Place: Research office, Department of Nursing, National Defense Medical College</p>
+      <p>Period: until 5 years after the end of the study is reported, or 3 years after the final publication of results is reported, whichever is later</p>
+      <p>Disposal: electronic data will be completely erased. The data will not be used for any other study.</p>
+    </div></details>
+
+    <details><summary>12. Funding and conflicts of interest</summary><div class="d-body">
+      <p>This study is funded by departmental research funds of the Department of Nursing, National Defense Medical College. The researchers have no conflicts of interest to declare.</p>
+    </div></details>
+
+    <details><summary>13. Results</summary><div class="d-body">
+      <p>Because this is an anonymous survey, we cannot return individual results. Answers will be analyzed statistically and presented at conferences and in journals. No individual will be identified.</p>
+    </div></details>
+
+    <details><summary>14. Costs and payment</summary><div class="d-body">
+      <p>There is no cost to you other than your smartphone data charges. There is no payment for taking part.</p>
+    </div></details>
+
+    <details><summary>Contact</summary><div class="d-body contact">
+      <p>Contact person: Yuji Iwama, Department of Nursing, National Defense Medical College</p>
+      <p>Address: 3-2 Namiki, Tokorozawa, Saitama 359-8513, Japan</p>
+      <p>Email: <a href="mailto:iwama@ndmc.ac.jp">iwama@ndmc.ac.jp</a> (English or Japanese)</p>
+      <p>Principal investigator: Kimiko Hayano, Head of the Department of Nursing</p>
+    </div></details>
+    <button class="open-all" onclick="openAll('en')">Open all sections</button>
+  </section>
+
+  <section class="consent">
+    <h2>Ready to answer?</h2>
+    <p class="sub">First, save your reception number.</p>
+    <div class="ticket">
+      <div class="label">Your reception number</div>
+      <div class="rid random-id">--------</div>
+      <button class="copy-btn" onclick="copyId(this,'en')">Copy</button>
+    </div>
+    <p class="id-warn">Take a screenshot or write it down.<br>You need it if you want to withdraw.</p>
+    <p class="id-note">This number does not identify you and is not linked to your name or address.</p>
+    <div class="checks">
+      <label><input type="checkbox" class="chk-en"><span>I will answer <span class="once">only once</span>, even if I attend more than one Japanese class.</span></label>
+      <label><input type="checkbox" class="chk-en"><span>I have read the information and understand the purpose, methods, and handling of personal information.</span></label>
+      <label><input type="checkbox" class="chk-en"><span>I understand that taking part is voluntary and that I can withdraw at any time (the reception number is needed).</span></label>
+      <label><input type="checkbox" class="chk-en"><span>I have saved my reception number.</span></label>
+      <label><input type="checkbox" class="chk-en"><span>I am 18 or older, I live in Tokorozawa City or attend a Japanese class in Tokorozawa City, and I agree to take part.</span></label>
+    </div>
+    <a id="form-link-en" class="go disabled" onclick="return checkConsent('en');">Start the questionnaire</a>
+    <p class="go-hint" id="hint-en">Check all five boxes to start.</p>
+    <a class="decline" onclick="window.close(); return false;">I do not wish to take part (close this page)</a>
+  </section>
+
+  <p class="foot">National Defense Medical College, Department of Nursing<br>Approved by the Ethics Committee of the National Defense Medical College (No. ____)</p>
+</div>
+
+<!-- =========================================================
+     Easy Japanese
+     ========================================================= -->
+<div id="screen-easy" class="wrap hidden" lang="ja">
+  <div class="topbar">
+    <span class="round" style="color:var(--leaf);font-weight:700;">ちょうさの せつめい</span>
+    <button onclick="showLang('en')">English</button>
+  </div>
+
+  <div class="hero">
+    <p class="kicker">ところざわに すむ がいこくじんの みなさんへ</p>
+    <h1>さいがいの とき、こまらない まちを いっしょに つくりましょう</h1>
+    <p>がいこくじんが さいがいの じょうほうを どうやって しるか、だれに たよれるか、どう そなえているかを しりたいです。こたえは、がいこくじんの ための ぼうさいの べんきょうや、ちいきの たすけあいを つくる ために つかいます。</p>
+    <span class="time-chip">⏱ スマホで 20〜25ふん ぐらい</span>
+  </div>
+
+  <div class="points">
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      <h3>なまえは ききません</h3>
+      <p>じゅうしょ・こくせき・ざいりゅう しかくも ききません。</p>
+    </div>
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+      <h3>こたえるのは じゆう</h3>
+      <p>にほんご きょうしつの せんせいには わかりません。</p>
+    </div>
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      <h3>とばして いい</h3>
+      <p>こたえたくない しつもんは とばして いいです。</p>
+    </div>
+    <div class="point">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      <h3>あとで けせる</h3>
+      <p>「うけつけ ばんごう」が あれば、こたえを けせます。</p>
+    </div>
+  </div>
+
+  <section class="block">
+    <h2>こたえかた</h2>
+    <ol class="steps">
+      <li>この ページを よみます。くわしい せつめいは したに あります。</li>
+      <li>「うけつけ ばんごう」を メモ するか、スクリーンショットを とります。</li>
+      <li>5つの □ に チェックを いれて、アンケートに こたえます。にほんご きょうしつに 2つ いじょう いっている 人も、こたえるのは <span class="once">1かい だけ</span> です。</li>
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2>くわしい せつめい</h2>
+    <p class="details-intro">タップすると よめます。</p>
+
+    <details><summary>1　けんきゅうの なまえ</summary><div class="d-body">
+      <p>「にほんに すむ がいこくじんの リスクリテラシーの けんきゅう（さいがいが ない ときの じょうほうの ちから・人との つながり・さびしさ の かんけい）」</p>
+      <p>この けんきゅうは、ぼうえい いか だいがっこうの りんり いいんかいで しらべて もらい、がっこうちょうの きょかを もらっています。</p>
+    </div></details>
+
+    <details><summary>2　けんきゅうを する 人</summary><div class="d-body">
+      <p>せきにんしゃ：はやの きみこ（ぼうえい いか だいがっこう かんご がっか）</p>
+      <p>いっしょに する 人：いわま ゆうじ、むろ まどか（ぼうえい いか だいがっこう かんご がっか）</p>
+      <p>アドバイス：かわはら かよこ（とうきょう とりつ だいがく）</p>
+    </div></details>
+
+    <details><summary>3　けんきゅうの もくてき</summary><div class="d-body">
+      <p>にほんでは、じしんや たいふう などの さいがいが よく あります。がいこくじんは、ことばが むずかしかったり、ちいきの 人との つながりが すくなかったり するので、さいがいの とき ひつような じょうほうが わからなかったり、にげるのが むずかしかったり する ことが あります。</p>
+      <p>この けんきゅうでは、さいがいが ない ふだんの ときに、①じょうほうを つかう ちから、②人との つながり、③さびしさ（こどくかん）と、さいがいの じょうほうの わかりやすさ・さいがいへの そなえの かんけいを しらべます。</p>
+    </div></details>
+
+    <details><summary>4　なにを するか</summary><div class="d-body">
+      <p>インターネットの アンケートに 1かい こたえて ください。しつもんは、あなたの こと（とし、どこから きたか、にほんごの ちから など）、人との つながり、じょうほうの しりかた、さいがいの けいけんと そなえ、にげる じしん、インターネットと けんこうの じょうほう、さいきんの 人との かかわり に ついてです。20〜25ふん ぐらい かかります。</p>
+      <p>きかん：きょかの 日から 2029ねん 3がつ 31にち まで（アンケートは 2028ねん 3がつ 31にち まで）</p>
+    </div></details>
+
+    <details><summary>5　あなたに おねがいする りゆう</summary><div class="d-body">
+      <p>ところざわしに すんでいる 人、または ところざわしの にほんご きょうしつに きている 人で、18さい いじょうの がいこくせきの 人に おねがい しています。えいご か やさしい にほんごで、じぶんで こたえられる 人です。</p>
+    </div></details>
+
+    <details><summary>6　たいへんな こと・よい こと</summary><div class="d-body">
+      <p>からだの きけんは ありません。こたえる じかんが かかります。</p>
+      <p>さいがいの けいけんの しつもんで、むかしの つらい ことを おもいだす かも しれません。ひがいの くわしい ことは ききません。こたえたくない しつもんは とばして いいです。いつでも やめて いいです。</p>
+      <p>こころや せいかつで こまった ときは、ここに そうだん できます。</p>
+      <ul>
+        <li>がいこくじん そうごう そうだん センター さいたま（いろいろな ことば・やさしい にほんご）：048-833-3296（げつ〜きん 9:00〜16:00）</li>
+        <li>TELL Lifeline（えいごの でんわ そうだん）：0800-300-8355</li>
+      </ul>
+      <p>こたえても、あなたに ちょくせつ よい ことは ありません。でも、がいこくじんの ための さいがいの たすけを よく する ことに やくだちます。</p>
+    </div></details>
+
+    <details><summary>7　さんかの きめかた・こたえを けしたい とき</summary><div class="d-body">
+      <p>こたえるか どうかは じゆうです。こたえなくても、とちゅうで やめても、あなたが こまる ことは ありません。にほんご きょうしつの せんせいや だんたいには、だれが こたえたか わかりません。</p>
+      <p>いつでも こたえを けす ことが できます。この ページに でる「うけつけ ばんごう」だけが、あなたの こたえを みつける ほうほうです。けしたい ときは、「どうい てっかいしょ」を ダウンロード して、うけつけ ばんごうを かいて、れんらくさきに ゆうびん か メールで おくって ください。</p>
+      <a href="consent_withdrawal_easy.pdf" class="dl-link" download>どうい てっかいしょ（PDF）</a>
+      <p>うけつけ ばんごうを なくすと、どれが あなたの こたえか わからないので、けす ことが できません。また、けっかを がっかいや ろんぶんで はっぴょう した あとは、その けっかから けす ことは できません。</p>
+      <p>メールで おくった ときの メールアドレスは、けす てつづきに だけ つかいます。こたえとは むすびつけません。てつづきが おわったら すぐに けします。</p>
+    </div></details>
+
+    <details><summary>8　けっかの はっぴょう</summary><div class="d-body">
+      <p>けっかは、がっかいや ろんぶんで はっぴょう します。</p>
+    </div></details>
+
+    <details><summary>9　けんきゅうの けいかくしょを みたい とき</summary><div class="d-body">
+      <p>みたい 人は、れんらくさきに れんらく して ください。ほかの 人の じょうほうを まもれる はんいで みる ことが できます。</p>
+    </div></details>
+
+    <details><summary>10　あなたの じょうほうを まもります</summary><div class="d-body">
+      <p>なまえ、じゅうしょ、メールアドレス など、あなたが だれか わかる ことは ききません。インターネットの じょうほう（IPアドレス など）も のこしません。こくせきや ざいりゅう しかくも ききません。こたえは「うけつけ ばんごう」だけで わけます。</p>
+      <p>こたえは Google フォームで あつめます。しばらく Google の コンピューターに のこりますが、けんきゅうしゃが がっこうの パスワードの ある コンピューターに いれた あと、Google からは けします。けっかを はっぴょう する とき、5人より すくない グループは、ほかの グループと いっしょに します。</p>
+    </div></details>
+
+    <details><summary>11　データの ほかんと すてかた</summary><div class="d-body">
+      <p>ばしょ：ぼうえい いか だいがっこう かんご がっかの けんきゅうしつ</p>
+      <p>きかん：けんきゅうが おわってから 5ねん、または さいごの はっぴょうから 3ねんの、おそい ほう まで</p>
+      <p>すてかた：データを ぜんぶ けします。ほかの けんきゅうには つかいません。</p>
+    </div></details>
+
+    <details><summary>12　けんきゅうの おかね</summary><div class="d-body">
+      <p>この けんきゅうは、ぼうえい いか だいがっこう かんご がっかの おかねで します。けんきゅうしゃと かいしゃ などとの とくべつな かんけいは ありません。</p>
+    </div></details>
+
+    <details><summary>13　けっかの おしらせ</summary><div class="d-body">
+      <p>なまえを きかない ちょうさ なので、ひとり ひとりの けっかは おしらせ できません。ぜんたいの けっかを はっぴょう します。あなたの ことが わかる ように は しません。</p>
+    </div></details>
+
+    <details><summary>14　おかね・おれい</summary><div class="d-body">
+      <p>スマホの つうしんりょう の ほかに、おかねは かかりません。おれいは ありません。</p>
+    </div></details>
+
+    <details><summary>れんらくさき</summary><div class="d-body contact">
+      <p>たんとう：いわま ゆうじ（ぼうえい いか だいがっこう かんご がっか）</p>
+      <p>じゅうしょ：〒359-8513 さいたまけん ところざわし なみき 3-2</p>
+      <p>メール：<a href="mailto:iwama@ndmc.ac.jp">iwama@ndmc.ac.jp</a>（にほんご・えいご）</p>
+      <p>せきにんしゃ：はやの きみこ（かんご がっか ちょう）</p>
+    </div></details>
+    <button class="open-all" onclick="openAll('easy')">ぜんぶ ひらく</button>
+  </section>
+
+  <section class="consent">
+    <h2>こたえて みませんか？</h2>
+    <p class="sub">まず、うけつけ ばんごうを メモ して ください。</p>
+    <div class="ticket">
+      <div class="label">あなたの うけつけ ばんごう</div>
+      <div class="rid random-id">--------</div>
+      <button class="copy-btn" onclick="copyId(this,'easy')">コピー</button>
+    </div>
+    <p class="id-warn">スクリーンショットを とるか、メモ して ください。<br>こたえを けしたい ときに ひつようです。</p>
+    <p class="id-note">この ばんごうで あなたが だれか は わかりません。</p>
+    <div class="checks">
+      <label><input type="checkbox" class="chk-easy"><span>にほんご きょうしつに 2つ いじょう いっていても、こたえるのは <span class="once">1かい だけ</span> です。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span>せつめいを よんで、もくてき・やりかた・じょうほうの まもりかたが わかりました。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span>さんかは じゆうで、いつでも こたえを けせる こと（うけつけ ばんごうが ひつよう）が わかりました。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span>うけつけ ばんごうを メモ しました。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span>わたしは 18さい いじょうで、ところざわしに すんでいる、または ところざわしの にほんご きょうしつに きています。さんか します。</span></label>
+    </div>
+    <a id="form-link-easy" class="go disabled" onclick="return checkConsent('easy');">アンケートを はじめる</a>
+    <p class="go-hint" id="hint-easy">5つ ぜんぶに チェックすると はじめられます。</p>
+    <a class="decline" onclick="window.close(); return false;">さんか しません（ページを とじる）</a>
+  </section>
+
+  <p class="foot">ぼうえい いか だいがっこう かんご がっか<br>ぼうえい いか だいがっこう りんり いいんかい しょうにん（No. ____）</p>
+</div>
+
+<script>
+  // ============================================================
+  // Settings: set after creating the two Google Forms.
+  // url: the form URL ending in "/viewform" (remove "?usp=...").
+  // entry: the entry ID of the "reception number" field in each form.
+  // ============================================================
+  const FORMS = {
+    en:   { url: 'https://docs.google.com/forms/d/e/XXXXXXXX_EN/viewform',   entry: 'entry.0000000000' },
+    easy: { url: 'https://docs.google.com/forms/d/e/XXXXXXXX_EASY/viewform', entry: 'entry.0000000000' }
+  };
+  const TXT = {
+    en:   { need: 'Please check all five boxes.', ready: 'You are ready. Thank you!', copied: 'Copied' },
+    easy: { need: '5つの □ に ぜんぶ チェックを いれて ください。', ready: 'じゅんび できました。ありがとう ございます！', copied: 'コピー しました' }
+  };
+
+  // 8-character random ID (excludes confusing characters 0/O/1/I/L)
+  function generateID() {
+    const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+    let id = '';
+    for (let i = 0; i < 8; i++) id += chars.charAt(Math.floor(Math.random() * chars.length));
+    return id;
+  }
+  const RID = generateID();
+
+  function showLang(lang) {
+    document.getElementById('screen-select').classList.add('hidden');
+    document.getElementById('screen-en').classList.toggle('hidden', lang !== 'en');
+    document.getElementById('screen-easy').classList.toggle('hidden', lang !== 'easy');
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'ja';
+    window.scrollTo(0, 0);
+  }
+
+  function openAll(lang) {
+    document.querySelectorAll('#screen-' + lang + ' details').forEach(d => d.open = true);
+  }
+
+  function updateButton(lang) {
+    const all = Array.from(document.querySelectorAll('.chk-' + lang)).every(c => c.checked);
+    document.getElementById('form-link-' + lang).classList.toggle('disabled', !all);
+    document.getElementById('hint-' + lang).textContent = all ? TXT[lang].ready :
+      (lang === 'en' ? 'Check all five boxes to start.' : '5つ ぜんぶに チェックすると はじめられます。');
+  }
+
+  function checkConsent(lang) {
+    if (document.getElementById('form-link-' + lang).classList.contains('disabled')) {
+      alert(TXT[lang].need);
+      return false;
+    }
+    return true;
+  }
+
+  function copyId(btn, lang) {
+    const done = () => { const t = btn.textContent; btn.textContent = TXT[lang].copied; setTimeout(() => btn.textContent = t, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(RID).then(done, done); else done();
+  }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.random-id').forEach(el => el.textContent = RID);
+    ['en', 'easy'].forEach(function (lang) {
+      const f = FORMS[lang];
+      document.getElementById('form-link-' + lang).href = f.url + '?usp=pp_url&' + f.entry + '=' + encodeURIComponent(RID);
+      document.querySelectorAll('.chk-' + lang).forEach(c => c.addEventListener('change', () => updateButton(lang)));
+    });
+    // A link like index.html?lang=en or ?lang=easy opens that language directly
+    const p = new URLSearchParams(location.search).get('lang');
+    if (p === 'en' || p === 'easy') showLang(p);
+  });
+
+  // When printing, show every section
+  window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+</script>
+
+</body>
+</html>
