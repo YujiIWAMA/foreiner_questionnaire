@@ -397,7 +397,8 @@
       <label><input type="checkbox" class="chk-en"><span>I have read the information and understand the purpose, methods, and handling of personal information.</span></label>
       <label><input type="checkbox" class="chk-en"><span>I understand that taking part is voluntary and that I can withdraw at any time (the reception number is needed).</span></label>
       <label><input type="checkbox" class="chk-en"><span>I have saved my reception number.</span></label>
-      <label><input type="checkbox" class="chk-en"><span>I am 18 or older, I live in Tokorozawa City or attend a Japanese class in Tokorozawa City, and I agree to take part.</span></label>
+      <label><input type="checkbox" class="chk-en"><span>I am 18 or older, I live in Tokorozawa City or attend a Japanese class in Tokorozawa City.</span></label>
+      <label><input type="checkbox" class="chk-en"><span>I have understood the explanation of this study, and I agree to take part in it of my own free will.</span></label>
     </div>
     <a id="form-link-en" class="go disabled" onclick="return checkConsent('en');">Start the questionnaire</a>
     <p class="go-hint" id="hint-en">Check all five boxes to start.</p>
@@ -557,7 +558,9 @@
       <label><input type="checkbox" class="chk-easy"><span>せつめいを よんで、もくてき・やりかた・じょうほうの まもりかたが わかりました。</span></label>
       <label><input type="checkbox" class="chk-easy"><span>さんかは じゆうで、いつでも こたえを けせる こと（うけつけ ばんごうが ひつよう）が わかりました。</span></label>
       <label><input type="checkbox" class="chk-easy"><span>うけつけ ばんごうを メモ しました。</span></label>
-      <label><input type="checkbox" class="chk-easy"><span>わたしは 18さい いじょうで、ところざわしに すんでいる、または ところざわしの にほんご きょうしつに きています。さんか します。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span>わたしは 18さい いじょうで、ところざわしに すんでいる、または ところざわしの にほんご きょうしつに きています。</span></label>
+       <label><input type="checkbox" class="chk-easy"><span>けんきゅうの せつめいが よく わかりました。だれにも いわれずに、じぶんで きめて、この けんきゅうに さんか します。</span></label>
+    </div>
     </div>
     <a id="form-link-easy" class="go disabled" onclick="return checkConsent('easy');">アンケートを はじめる</a>
     <p class="go-hint" id="hint-easy">5つ ぜんぶに チェックすると はじめられます。</p>
@@ -607,7 +610,7 @@
     const all = Array.from(document.querySelectorAll('.chk-' + lang)).every(c => c.checked);
     document.getElementById('form-link-' + lang).classList.toggle('disabled', !all);
     document.getElementById('hint-' + lang).textContent = all ? TXT[lang].ready :
-      (lang === 'en' ? 'Check all five boxes to start.' : '5つ ぜんぶに チェックすると はじめられます。');
+      (lang === 'en' ? 'Check all six boxes to start.' : '6つ ぜんぶに チェックすると はじめられます。');
   }
 
   function checkConsent(lang) {
