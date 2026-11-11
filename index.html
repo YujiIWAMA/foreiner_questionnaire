@@ -34,6 +34,16 @@
   }
   h1, h2, h3, .round { font-family: "M PLUS Rounded 1c", "BIZ UDPGothic", sans-serif; }
   a { color: var(--leaf-dark); }
+  ruby { ruby-position: over; ruby-align: center; }
+  rt { font-size: .6em; font-weight: 500; letter-spacing: 0; line-height: 1; }
+  #screen-easy { line-height: 2.1; }
+  #screen-easy .hero h1, .welcome h1 .ja { line-height: 1.9; }
+  #screen-easy .point h3 { line-height: 1.9; }
+  #screen-easy .point p { line-height: 2; }
+  .welcome .lead, .lang-card p, .foot, .meta-line { line-height: 2; }
+  .lang-btn { line-height: 1.7; }
+  .go { line-height: 1.8; }
+  .go-hint.need { color: var(--warn); font-weight: 700; }
   :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
   .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px 48px; }
   .hidden { display: none !important; }
@@ -233,18 +243,18 @@
       <span>Kumusta</span><span>안녕하세요</span><span>Olá</span><span>Halo</span><span>こんにちは</span>
     </div>
     <h1>Tell us how you prepare for disasters
-      <span class="ja">さいがいの そなえを おしえて ください</span></h1>
-    <p class="lead">A survey for foreign residents of Tokorozawa<br>ところざわに すむ がいこくじんの ための ちょうさ</p>
+      <span class="ja"><ruby>災害<rt>さいがい</rt></ruby>の<ruby>備<rt>そな</rt></ruby>えを<ruby>教<rt>おし</rt></ruby>えてください</span></h1>
+    <p class="lead">A survey for foreign residents of Tokorozawa<br><ruby>所沢<rt>ところざわ</rt></ruby>に<ruby>住<rt>す</rt></ruby>む<ruby>外国人<rt>がいこくじん</rt></ruby>のための<ruby>調査<rt>ちょうさ</rt></ruby></p>
     <div class="lang-card">
-      <p>Please choose a language.<br>ことばを えらんで ください。</p>
+      <p>Please choose a language.<br>ことばを<ruby>選<rt>えら</rt></ruby>んでください。</p>
       <div class="lang-buttons">
         <button class="lang-btn" onclick="showLang('en')">English</button>
-        <button class="lang-btn" onclick="showLang('easy')">やさしい にほんご<small>Easy Japanese</small></button>
+        <button class="lang-btn" onclick="showLang('easy')">やさしい<ruby>日本語<rt>にほんご</rt></ruby><small>Easy Japanese</small></button>
       </div>
-      <p class="meta-line">About 15–20 minutes ／ 15〜20ふん ぐらい</p>
+      <p class="meta-line">About 15–20 minutes ／ <ruby>15<rt>じゅうご</rt></ruby>〜<ruby>20分<rt>にじゅっぷん</rt></ruby>ぐらい</p>
     </div>
   </div>
-  <p class="foot">National Defense Medical College, Department of Nursing<br>ぼうえい いか だいがっこう かんご がっか</p>
+  <p class="foot">National Defense Medical College, Department of Nursing<br><ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>看護学科<rt>かんごがっか</rt></ruby></p>
 </div>
 
 <!-- =========================================================
@@ -253,7 +263,7 @@
 <div id="screen-en" class="wrap hidden" lang="en">
   <div class="topbar">
     <span class="round" style="color:var(--leaf);font-weight:700;">Survey information</span>
-    <button onclick="showLang('easy')">やさしい にほんご</button>
+    <button onclick="showLang('easy')">やさしい<ruby>日本語<rt>にほんご</rt></ruby></button>
   </div>
 
   <div class="hero">
@@ -413,160 +423,160 @@
      ========================================================= -->
 <div id="screen-easy" class="wrap hidden" lang="ja">
   <div class="topbar">
-    <span class="round" style="color:var(--leaf);font-weight:700;">ちょうさの せつめい</span>
+    <span class="round" style="color:var(--leaf);font-weight:700;"><ruby>調査<rt>ちょうさ</rt></ruby>の<ruby>説明<rt>せつめい</rt></ruby></span>
     <button onclick="showLang('en')">English</button>
   </div>
 
   <div class="hero">
-    <p class="kicker">ところざわに すむ がいこくじんの みなさんへ</p>
-    <h1>さいがいの とき、こまらない まちを いっしょに つくりましょう</h1>
-    <p>がいこくじんが さいがいの じょうほうを どうやって しるか、だれに たよれるか、どう そなえているかを しりたいです。こたえは、がいこくじんの ための ぼうさいの べんきょうや、ちいきの たすけあいを つくる ために つかいます。</p>
-    <span class="time-chip">⏱ スマホで 15〜20ふん ぐらい</span>
+    <p class="kicker"><ruby>所沢<rt>ところざわ</rt></ruby>に<ruby>住<rt>す</rt></ruby>む<ruby>外国人<rt>がいこくじん</rt></ruby>のみなさんへ</p>
+    <h1><ruby>災害<rt>さいがい</rt></ruby>のとき、<ruby>困<rt>こま</rt></ruby>らない<ruby>町<rt>まち</rt></ruby>をいっしょにつくりましょう</h1>
+    <p><ruby>外国人<rt>がいこくじん</rt></ruby>が<ruby>災害<rt>さいがい</rt></ruby>の<ruby>情報<rt>じょうほう</rt></ruby>をどうやって<ruby>知<rt>し</rt></ruby>るか、だれに<ruby>頼<rt>たよ</rt></ruby>れるか、どう<ruby>備<rt>そな</rt></ruby>えているかを<ruby>知<rt>し</rt></ruby>りたいです。<ruby>答<rt>こた</rt></ruby>えは、<ruby>外国人<rt>がいこくじん</rt></ruby>のための<ruby>防災<rt>ぼうさい</rt></ruby>の<ruby>勉強<rt>べんきょう</rt></ruby>や、<ruby>地域<rt>ちいき</rt></ruby>の<ruby>助<rt>たす</rt></ruby>け<ruby>合<rt>あ</rt></ruby>いをつくるために<ruby>使<rt>つか</rt></ruby>います。</p>
+    <span class="time-chip">⏱ スマホで<ruby>15<rt>じゅうご</rt></ruby>〜<ruby>20分<rt>にじゅっぷん</rt></ruby>ぐらい</span>
   </div>
 
   <div class="points">
     <div class="point">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-      <h3>なまえは ききません</h3>
-      <p>じゅうしょ・こくせき・ざいりゅう しかくも ききません。</p>
+      <h3><ruby>名前<rt>なまえ</rt></ruby>は<ruby>聞<rt>き</rt></ruby>きません</h3>
+      <p><ruby>住所<rt>じゅうしょ</rt></ruby>・<ruby>国籍<rt>こくせき</rt></ruby>・<ruby>在留資格<rt>ざいりゅうしかく</rt></ruby>も<ruby>聞<rt>き</rt></ruby>きません。</p>
     </div>
     <div class="point">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
-      <h3>こたえるのは じゆう</h3>
-      <p>にほんご きょうしつの せんせいには わかりません。</p>
+      <h3><ruby>答<rt>こた</rt></ruby>えるのは<ruby>自由<rt>じゆう</rt></ruby></h3>
+      <p><ruby>日本語<rt>にほんご</rt></ruby><ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>先生<rt>せんせい</rt></ruby>には<ruby>分<rt>わ</rt></ruby>かりません。</p>
     </div>
     <div class="point">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-      <h3>とばして いい</h3>
-      <p>こたえたくない しつもんは とばして いいです。</p>
+      <h3><ruby>飛<rt>と</rt></ruby>ばしていい</h3>
+      <p><ruby>答<rt>こた</rt></ruby>えたくない<ruby>質問<rt>しつもん</rt></ruby>は<ruby>飛<rt>と</rt></ruby>ばしていいです。</p>
     </div>
     <div class="point">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
-      <h3>あとで けせる</h3>
-      <p>「うけつけ ばんごう」が あれば、こたえを けせます。</p>
+      <h3>あとで<ruby>消<rt>け</rt></ruby>せる</h3>
+      <p>「<ruby>受付番号<rt>うけつけばんごう</rt></ruby>」があれば、<ruby>答<rt>こた</rt></ruby>えを<ruby>消<rt>け</rt></ruby>せます。</p>
     </div>
   </div>
 
   <section class="block">
-    <h2>こたえかた</h2>
+    <h2><ruby>答<rt>こた</rt></ruby>え<ruby>方<rt>かた</rt></ruby></h2>
     <ol class="steps">
-      <li>この ページを よみます。くわしい せつめいは したに あります。</li>
-      <li>「うけつけ ばんごう」を メモ するか、スクリーンショットを とります。</li>
-      <li>6つの □ に チェックを いれて、アンケートに こたえます。にほんご きょうしつに 2つ いじょう いっている 人も、こたえるのは <span class="once">1かい だけ</span> です。</li>
+      <li>このページを<ruby>読<rt>よ</rt></ruby>みます。くわしい<ruby>説明<rt>せつめい</rt></ruby>は<ruby>下<rt>した</rt></ruby>にあります。</li>
+      <li>「<ruby>受付番号<rt>うけつけばんごう</rt></ruby>」をメモするか、スクリーンショットを<ruby>撮<rt>と</rt></ruby>ります。</li>
+      <li>6つの□にチェックを<ruby>入<rt>い</rt></ruby>れて、アンケートに<ruby>答<rt>こた</rt></ruby>えます。<ruby>日本語<rt>にほんご</rt></ruby><ruby>教室<rt>きょうしつ</rt></ruby>に2つ<ruby>以上<rt>いじょう</rt></ruby><ruby>行<rt>い</rt></ruby>っている<ruby>人<rt>ひと</rt></ruby>も、<ruby>答<rt>こた</rt></ruby>えるのは<span class="once"><ruby>1回<rt>かい</rt></ruby>だけ</span>です。</li>
     </ol>
   </section>
 
   <section class="block">
-    <h2>くわしい せつめい</h2>
-    <p class="details-intro">タップすると よめます。</p>
+    <h2>くわしい<ruby>説明<rt>せつめい</rt></ruby></h2>
+    <p class="details-intro">タップすると<ruby>読<rt>よ</rt></ruby>めます。</p>
 
-    <details><summary>1　けんきゅうの なまえ</summary><div class="d-body">
-      <p>「にほんに すむ がいこくじんの リスクリテラシーの けんきゅう（さいがいが ない ときの じょうほうの ちから・人との つながり・さびしさ の かんけい）」</p>
-      <p>この けんきゅうは、ぼうえい いか だいがっこうの りんり いいんかいで しらべて もらい、がっこうちょうの きょかを もらっています。</p>
+    <details><summary>1　<ruby>研究<rt>けんきゅう</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby></summary><div class="d-body">
+      <p>「<ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>む<ruby>外国人<rt>がいこくじん</rt></ruby>のリスクリテラシーの<ruby>研究<rt>けんきゅう</rt></ruby>（<ruby>災害<rt>さいがい</rt></ruby>がないときの<ruby>情報<rt>じょうほう</rt></ruby>の<ruby>力<rt>ちから</rt></ruby>・<ruby>人<rt>ひと</rt></ruby>とのつながり・さびしさの<ruby>関係<rt>かんけい</rt></ruby>）」</p>
+      <p>この<ruby>研究<rt>けんきゅう</rt></ruby>は、<ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby>の<ruby>倫理<rt>りんり</rt></ruby><ruby>委員会<rt>いいんかい</rt></ruby>で<ruby>調<rt>しら</rt></ruby>べてもらい、<ruby>学校長<rt>がっこうちょう</rt></ruby>の<ruby>許可<rt>きょか</rt></ruby>をもらっています。</p>
     </div></details>
 
-    <details><summary>2　けんきゅうを する 人</summary><div class="d-body">
-      <p>せきにんしゃ：はやの きみこ（ぼうえい いか だいがっこう かんご がっか）</p>
-      <p>いっしょに する 人：いわま ゆうじ、むろ まどか（ぼうえい いか だいがっこう かんご がっか）</p>
+    <details><summary>2　<ruby>研究<rt>けんきゅう</rt></ruby>をする<ruby>人<rt>ひと</rt></ruby></summary><div class="d-body">
+      <p><ruby>責任者<rt>せきにんしゃ</rt></ruby>：<ruby>早野<rt>はやの</rt></ruby><ruby>貴美子<rt>きみこ</rt></ruby>（<ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>看護学科<rt>かんごがっか</rt></ruby>）</p>
+      <p>いっしょにする<ruby>人<rt>ひと</rt></ruby>：<ruby>岩間<rt>いわま</rt></ruby><ruby>裕司<rt>ゆうじ</rt></ruby>、<ruby>室<rt>むろ</rt></ruby><ruby>円<rt>まどか</rt></ruby>（<ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>看護学科<rt>かんごがっか</rt></ruby>）</p>
     </div></details>
 
-    <details><summary>3　けんきゅうの もくてき</summary><div class="d-body">
-      <p>にほんでは、じしんや たいふう などの さいがいが よく あります。がいこくじんは、ことばが むずかしかったり、ちいきの 人との つながりが すくなかったり するので、さいがいの とき ひつような じょうほうが わからなかったり、にげるのが むずかしかったり する ことが あります。</p>
-      <p>この けんきゅうでは、さいがいが ない ふだんの ときに、①じょうほうを つかう ちから、②人との つながり、③さびしさ（こどくかん）と、さいがいの じょうほうの わかりやすさ・さいがいへの そなえの かんけいを しらべます。</p>
+    <details><summary>3　<ruby>研究<rt>けんきゅう</rt></ruby>の<ruby>目的<rt>もくてき</rt></ruby></summary><div class="d-body">
+      <p><ruby>日本<rt>にほん</rt></ruby>では、<ruby>地震<rt>じしん</rt></ruby>や<ruby>台風<rt>たいふう</rt></ruby>などの<ruby>災害<rt>さいがい</rt></ruby>がよくあります。<ruby>外国人<rt>がいこくじん</rt></ruby>は、ことばが<ruby>難<rt>むずか</rt></ruby>しかったり、<ruby>地域<rt>ちいき</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>とのつながりが<ruby>少<rt>すく</rt></ruby>なかったりするので、<ruby>災害<rt>さいがい</rt></ruby>のとき<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>情報<rt>じょうほう</rt></ruby>が<ruby>分<rt>わ</rt></ruby>からなかったり、<ruby>逃<rt>に</rt></ruby>げるのが<ruby>難<rt>むずか</rt></ruby>しかったりすることがあります。</p>
+      <p>この<ruby>研究<rt>けんきゅう</rt></ruby>では、<ruby>災害<rt>さいがい</rt></ruby>がない<ruby>普段<rt>ふだん</rt></ruby>のときに、①<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う<ruby>力<rt>ちから</rt></ruby>、②<ruby>人<rt>ひと</rt></ruby>とのつながり、③さびしさ（<ruby>孤独感<rt>こどくかん</rt></ruby>）と、<ruby>災害<rt>さいがい</rt></ruby>の<ruby>情報<rt>じょうほう</rt></ruby>の<ruby>分<rt>わ</rt></ruby>かりやすさ・<ruby>災害<rt>さいがい</rt></ruby>への<ruby>備<rt>そな</rt></ruby>えの<ruby>関係<rt>かんけい</rt></ruby>を<ruby>調<rt>しら</rt></ruby>べます。</p>
     </div></details>
 
-    <details><summary>4　なにを するか</summary><div class="d-body">
-      <p>インターネットの アンケートに 1かい こたえて ください。しつもんは、あなたの こと（とし、どこから きたか、にほんごの ちから など）、人との つながり、じょうほうの しりかた、さいがいの けいけんと そなえ、にげる じしん、インターネットと けんこうの じょうほう、さいきんの 人との かかわり に ついてです。20〜25ふん ぐらい かかります。</p>
-      <p>きかん：きょかの 日から 2029ねん 3がつ 31にち まで（アンケートは 2028ねん 3がつ 31にち まで）</p>
+    <details><summary>4　<ruby>何<rt>なに</rt></ruby>をするか</summary><div class="d-body">
+      <p>インターネットのアンケートに<ruby>1回<rt>かい</rt></ruby><ruby>答<rt>こた</rt></ruby>えてください。<ruby>質問<rt>しつもん</rt></ruby>は、あなたのこと（<ruby>年<rt>とし</rt></ruby>、どこから<ruby>来<rt>き</rt></ruby>たか、<ruby>日本語<rt>にほんご</rt></ruby>の<ruby>力<rt>ちから</rt></ruby>など）、<ruby>人<rt>ひと</rt></ruby>とのつながり、<ruby>情報<rt>じょうほう</rt></ruby>の<ruby>知<rt>し</rt></ruby>り<ruby>方<rt>かた</rt></ruby>、<ruby>災害<rt>さいがい</rt></ruby>の<ruby>経験<rt>けいけん</rt></ruby>と<ruby>備<rt>そな</rt></ruby>え、<ruby>逃<rt>に</rt></ruby>げる<ruby>自信<rt>じしん</rt></ruby>、インターネットと<ruby>健康<rt>けんこう</rt></ruby>の<ruby>情報<rt>じょうほう</rt></ruby>、<ruby>最近<rt>さいきん</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>とのかかわりについてです。<ruby>20<rt>にじゅう</rt></ruby>〜<ruby>25分<rt>にじゅうごふん</rt></ruby>ぐらいかかります。</p>
+      <p><ruby>期間<rt>きかん</rt></ruby>：<ruby>許可<rt>きょか</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>から<ruby>2029年<rt>ねん</rt></ruby><ruby>3月<rt>がつ</rt></ruby><ruby>31日<rt>にち</rt></ruby>まで（アンケートは<ruby>2028年<rt>ねん</rt></ruby><ruby>3月<rt>がつ</rt></ruby><ruby>31日<rt>にち</rt></ruby>まで）</p>
     </div></details>
 
-    <details><summary>5　あなたに おねがいする りゆう</summary><div class="d-body">
-      <p>ところざわしに すんでいる 人、または ところざわしの にほんご きょうしつに きている 人で、18さい いじょうの がいこくせきの 人に おねがい しています。えいご か やさしい にほんごで、じぶんで こたえられる 人です。</p>
+    <details><summary>5　あなたにお<ruby>願<rt>ねが</rt></ruby>いする<ruby>理由<rt>りゆう</rt></ruby></summary><div class="d-body">
+      <p><ruby>所沢市<rt>ところざわし</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいる<ruby>人<rt>ひと</rt></ruby>、または<ruby>所沢市<rt>ところざわし</rt></ruby>の<ruby>日本語<rt>にほんご</rt></ruby><ruby>教室<rt>きょうしつ</rt></ruby>に<ruby>来<rt>き</rt></ruby>ている<ruby>人<rt>ひと</rt></ruby>で、<ruby>18歳<rt>さい</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>の<ruby>外国籍<rt>がいこくせき</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>にお<ruby>願<rt>ねが</rt></ruby>いしています。<ruby>英語<rt>えいご</rt></ruby>かやさしい<ruby>日本語<rt>にほんご</rt></ruby>で、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>答<rt>こた</rt></ruby>えられる<ruby>人<rt>ひと</rt></ruby>です。</p>
     </div></details>
 
-    <details><summary>6　たいへんな こと・よい こと</summary><div class="d-body">
-      <p>からだの きけんは ありません。こたえる じかんが かかります。</p>
-      <p>さいがいの けいけんの しつもんで、むかしの つらい ことを おもいだす かも しれません。ひがいの くわしい ことは ききません。こたえたくない しつもんは とばして いいです。いつでも やめて いいです。</p>
-      <p>こころや せいかつで こまった ときは、ここに そうだん できます。</p>
+    <details><summary>6　<ruby>大変<rt>たいへん</rt></ruby>なこと・よいこと</summary><div class="d-body">
+      <p><ruby>体<rt>からだ</rt></ruby>の<ruby>危険<rt>きけん</rt></ruby>はありません。<ruby>答<rt>こた</rt></ruby>える<ruby>時間<rt>じかん</rt></ruby>がかかります。</p>
+      <p><ruby>災害<rt>さいがい</rt></ruby>の<ruby>経験<rt>けいけん</rt></ruby>の<ruby>質問<rt>しつもん</rt></ruby>で、<ruby>昔<rt>むかし</rt></ruby>のつらいことを<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>すかもしれません。<ruby>被害<rt>ひがい</rt></ruby>のくわしいことは<ruby>聞<rt>き</rt></ruby>きません。<ruby>答<rt>こた</rt></ruby>えたくない<ruby>質問<rt>しつもん</rt></ruby>は<ruby>飛<rt>と</rt></ruby>ばしていいです。いつでもやめていいです。</p>
+      <p><ruby>心<rt>こころ</rt></ruby>や<ruby>生活<rt>せいかつ</rt></ruby>で<ruby>困<rt>こま</rt></ruby>ったときは、ここに<ruby>相談<rt>そうだん</rt></ruby>できます。</p>
       <ul>
-        <li>がいこくじん そうごう そうだん センター さいたま（いろいろな ことば・やさしい にほんご）：048-833-3296（げつ〜きん 9:00〜16:00）</li>
-        <li>TELL Lifeline（えいごの でんわ そうだん）：0800-300-8355</li>
+        <li><ruby>外国人<rt>がいこくじん</rt></ruby><ruby>総合<rt>そうごう</rt></ruby><ruby>相談<rt>そうだん</rt></ruby>センター<ruby>埼玉<rt>さいたま</rt></ruby>（いろいろなことば・やさしい<ruby>日本語<rt>にほんご</rt></ruby>）：048-833-3296（<ruby>月<rt>げつ</rt></ruby>〜<ruby>金<rt>きん</rt></ruby> 9:00〜16:00）</li>
+        <li>TELL Lifeline（<ruby>英語<rt>えいご</rt></ruby>の<ruby>電話<rt>でんわ</rt></ruby><ruby>相談<rt>そうだん</rt></ruby>）：0800-300-8355</li>
       </ul>
-      <p>こたえても、あなたに ちょくせつ よい ことは ありません。でも、がいこくじんの ための さいがいの たすけを よく する ことに やくだちます。</p>
+      <p><ruby>答<rt>こた</rt></ruby>えても、あなたに<ruby>直接<rt>ちょくせつ</rt></ruby>よいことはありません。でも、<ruby>外国人<rt>がいこくじん</rt></ruby>のための<ruby>災害<rt>さいがい</rt></ruby>の<ruby>助<rt>たす</rt></ruby>けをよくすることに<ruby>役立<rt>やくだ</rt></ruby>ちます。</p>
     </div></details>
 
-    <details><summary>7　さんかの きめかた・こたえを けしたい とき</summary><div class="d-body">
-      <p>こたえるか どうかは じゆうです。こたえなくても、とちゅうで やめても、あなたが こまる ことは ありません。にほんご きょうしつの せんせいや だんたいには、だれが こたえたか わかりません。</p>
-      <p><strong>2028ねん 4がつ 30にち</strong> まで、こたえを けす ことが できます。この ページに でる「うけつけ ばんごう」だけが、あなたの こたえを みつける ほうほうです。けしたい ときは、「どうい てっかいしょ」を ダウンロード して、うけつけ ばんごうを かいて、れんらくさきに ゆうびん か メールで おくって ください。</p>
-      <a href="consent_withdrawal_easy.pdf" class="dl-link" download>どうい てっかいしょ（PDF）</a>
-      <p>アンケートが おわって 1か月 あとに、ぶんせきに つかう データを きめます。そのため、2028ねん 4がつ 30にち の あとは、こたえを けす ことが できません。うけつけ ばんごうを なくすと、どれが あなたの こたえか わからないので、けす ことが できません。また、けっかを がっかいや ろんぶんで はっぴょう した あとは、その けっかから けす ことは できません。</p>
-      <p>メールで おくった ときの メールアドレスは、けす てつづきに だけ つかいます。こたえとは むすびつけません。てつづきが おわったら すぐに けします。</p>
+    <details><summary>7　<ruby>参加<rt>さんか</rt></ruby>の<ruby>決<rt>き</rt></ruby>め<ruby>方<rt>かた</rt></ruby>・<ruby>答<rt>こた</rt></ruby>えを<ruby>消<rt>け</rt></ruby>したいとき</summary><div class="d-body">
+      <p><ruby>答<rt>こた</rt></ruby>えるかどうかは<ruby>自由<rt>じゆう</rt></ruby>です。<ruby>答<rt>こた</rt></ruby>えなくても、<ruby>途中<rt>とちゅう</rt></ruby>でやめても、あなたが<ruby>困<rt>こま</rt></ruby>ることはありません。<ruby>日本語<rt>にほんご</rt></ruby><ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>先生<rt>せんせい</rt></ruby>や<ruby>団体<rt>だんたい</rt></ruby>には、だれが<ruby>答<rt>こた</rt></ruby>えたか<ruby>分<rt>わ</rt></ruby>かりません。</p>
+      <p><strong><ruby>2028年<rt>ねん</rt></ruby><ruby>4月<rt>がつ</rt></ruby><ruby>30日<rt>にち</rt></ruby></strong>まで、<ruby>答<rt>こた</rt></ruby>えを<ruby>消<rt>け</rt></ruby>すことができます。このページに<ruby>出<rt>で</rt></ruby>る「<ruby>受付番号<rt>うけつけばんごう</rt></ruby>」だけが、あなたの<ruby>答<rt>こた</rt></ruby>えを<ruby>見<rt>み</rt></ruby>つける<ruby>方法<rt>ほうほう</rt></ruby>です。<ruby>消<rt>け</rt></ruby>したいときは、「<ruby>同意<rt>どうい</rt></ruby><ruby>撤回書<rt>てっかいしょ</rt></ruby>」をダウンロードして、<ruby>受付番号<rt>うけつけばんごう</rt></ruby>を<ruby>書<rt>か</rt></ruby>いて、<ruby>連絡先<rt>れんらくさき</rt></ruby>に<ruby>郵便<rt>ゆうびん</rt></ruby>かメールで<ruby>送<rt>おく</rt></ruby>ってください。</p>
+      <a href="consent_withdrawal_easy.pdf" class="dl-link" download><ruby>同意<rt>どうい</rt></ruby><ruby>撤回書<rt>てっかいしょ</rt></ruby>（PDF）</a>
+      <p>アンケートが<ruby>終<rt>お</rt></ruby>わって1か<ruby>月<rt>げつ</rt></ruby><ruby>後<rt>ご</rt></ruby>に、<ruby>分析<rt>ぶんせき</rt></ruby>に<ruby>使<rt>つか</rt></ruby>うデータを<ruby>決<rt>き</rt></ruby>めます。そのため、<ruby>2028年<rt>ねん</rt></ruby><ruby>4月<rt>がつ</rt></ruby><ruby>30日<rt>にち</rt></ruby>の<ruby>後<rt>あと</rt></ruby>は、<ruby>答<rt>こた</rt></ruby>えを<ruby>消<rt>け</rt></ruby>すことができません。<ruby>受付番号<rt>うけつけばんごう</rt></ruby>をなくすと、どれがあなたの<ruby>答<rt>こた</rt></ruby>えか<ruby>分<rt>わ</rt></ruby>からないので、<ruby>消<rt>け</rt></ruby>すことができません。また、<ruby>結果<rt>けっか</rt></ruby>を<ruby>学会<rt>がっかい</rt></ruby>や<ruby>論文<rt>ろんぶん</rt></ruby>で<ruby>発表<rt>はっぴょう</rt></ruby>した<ruby>後<rt>あと</rt></ruby>は、その<ruby>結果<rt>けっか</rt></ruby>から<ruby>消<rt>け</rt></ruby>すことはできません。</p>
+      <p>メールで<ruby>送<rt>おく</rt></ruby>ったときのメールアドレスは、<ruby>消<rt>け</rt></ruby>す<ruby>手続<rt>てつづ</rt></ruby>きにだけ<ruby>使<rt>つか</rt></ruby>います。<ruby>答<rt>こた</rt></ruby>えとは<ruby>結<rt>むす</rt></ruby>びつけません。<ruby>手続<rt>てつづ</rt></ruby>きが<ruby>終<rt>お</rt></ruby>わったらすぐに<ruby>消<rt>け</rt></ruby>します。</p>
     </div></details>
 
-    <details><summary>8　けっかの はっぴょう</summary><div class="d-body">
-      <p>けっかは、がっかいや ろんぶんで はっぴょう します。</p>
+    <details><summary>8　<ruby>結果<rt>けっか</rt></ruby>の<ruby>発表<rt>はっぴょう</rt></ruby></summary><div class="d-body">
+      <p><ruby>結果<rt>けっか</rt></ruby>は、<ruby>学会<rt>がっかい</rt></ruby>や<ruby>論文<rt>ろんぶん</rt></ruby>で<ruby>発表<rt>はっぴょう</rt></ruby>します。</p>
     </div></details>
 
-    <details><summary>9　けんきゅうの けいかくしょを みたい とき</summary><div class="d-body">
-      <p>みたい 人は、れんらくさきに れんらく して ください。ほかの 人の じょうほうを まもれる はんいで みる ことが できます。</p>
+    <details><summary>9　<ruby>研究<rt>けんきゅう</rt></ruby>の<ruby>計画書<rt>けいかくしょ</rt></ruby>を<ruby>見<rt>み</rt></ruby>たいとき</summary><div class="d-body">
+      <p><ruby>見<rt>み</rt></ruby>たい<ruby>人<rt>ひと</rt></ruby>は、<ruby>連絡先<rt>れんらくさき</rt></ruby>に<ruby>連絡<rt>れんらく</rt></ruby>してください。ほかの<ruby>人<rt>ひと</rt></ruby>の<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>守<rt>まも</rt></ruby>れる<ruby>範囲<rt>はんい</rt></ruby>で<ruby>見<rt>み</rt></ruby>ることができます。</p>
     </div></details>
 
-    <details><summary>10　あなたの じょうほうを まもります</summary><div class="d-body">
-      <p>なまえ、じゅうしょ、メールアドレス など、あなたが だれか わかる ことは ききません。インターネットの じょうほう（IPアドレス など）も のこしません。こくせきや ざいりゅう しかくも ききません。こたえは「うけつけ ばんごう」だけで わけます。</p>
-      <p>こたえは Google フォームで あつめます。しばらく Google の コンピューターに のこりますが、けんきゅうしゃが がっこうの パスワードの ある コンピューターに いれた あと、Google からは けします。けっかを はっぴょう する とき、5人より すくない グループは、ほかの グループと いっしょに します。</p>
+    <details><summary>10　あなたの<ruby>情報<rt>じょうほう</rt></ruby>を<ruby>守<rt>まも</rt></ruby>ります</summary><div class="d-body">
+      <p><ruby>名前<rt>なまえ</rt></ruby>、<ruby>住所<rt>じゅうしょ</rt></ruby>、メールアドレスなど、あなたがだれか<ruby>分<rt>わ</rt></ruby>かることは<ruby>聞<rt>き</rt></ruby>きません。インターネットの<ruby>情報<rt>じょうほう</rt></ruby>（IPアドレスなど）も<ruby>残<rt>のこ</rt></ruby>しません。<ruby>国籍<rt>こくせき</rt></ruby>や<ruby>在留資格<rt>ざいりゅうしかく</rt></ruby>も<ruby>聞<rt>き</rt></ruby>きません。<ruby>答<rt>こた</rt></ruby>えは「<ruby>受付番号<rt>うけつけばんごう</rt></ruby>」だけで<ruby>分<rt>わ</rt></ruby>けます。</p>
+      <p><ruby>答<rt>こた</rt></ruby>えはGoogleフォームで<ruby>集<rt>あつ</rt></ruby>めます。しばらくGoogleのコンピューターに<ruby>残<rt>のこ</rt></ruby>りますが、<ruby>研究者<rt>けんきゅうしゃ</rt></ruby>が<ruby>学校<rt>がっこう</rt></ruby>のパスワードのあるコンピューターに<ruby>入<rt>い</rt></ruby>れたあと、Googleからは<ruby>消<rt>け</rt></ruby>します。<ruby>結果<rt>けっか</rt></ruby>を<ruby>発表<rt>はっぴょう</rt></ruby>するとき、<ruby>5人<rt>にん</rt></ruby>より<ruby>少<rt>すく</rt></ruby>ないグループは、ほかのグループといっしょにします。</p>
     </div></details>
 
-    <details><summary>11　データの ほかんと すてかた</summary><div class="d-body">
-      <p>ばしょ：ぼうえい いか だいがっこう かんご がっかの けんきゅうしつ</p>
-      <p>きかん：けんきゅうが おわってから 5ねん、または さいごの はっぴょうから 3ねんの、おそい ほう まで</p>
-      <p>すてかた：データを ぜんぶ けします。ほかの けんきゅうには つかいません。</p>
+    <details><summary>11　データの<ruby>保管<rt>ほかん</rt></ruby>と<ruby>捨<rt>す</rt></ruby>て<ruby>方<rt>かた</rt></ruby></summary><div class="d-body">
+      <p><ruby>場所<rt>ばしょ</rt></ruby>：<ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>看護学科<rt>かんごがっか</rt></ruby>の<ruby>研究室<rt>けんきゅうしつ</rt></ruby></p>
+      <p><ruby>期間<rt>きかん</rt></ruby>：<ruby>研究<rt>けんきゅう</rt></ruby>が<ruby>終<rt>お</rt></ruby>わってから<ruby>5年<rt>ねん</rt></ruby>、または<ruby>最後<rt>さいご</rt></ruby>の<ruby>発表<rt>はっぴょう</rt></ruby>から<ruby>3年<rt>ねん</rt></ruby>の、<ruby>遅<rt>おそ</rt></ruby>い<ruby>方<rt>ほう</rt></ruby>まで</p>
+      <p><ruby>捨<rt>す</rt></ruby>て<ruby>方<rt>かた</rt></ruby>：データを<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>消<rt>け</rt></ruby>します。ほかの<ruby>研究<rt>けんきゅう</rt></ruby>には<ruby>使<rt>つか</rt></ruby>いません。</p>
     </div></details>
 
-    <details><summary>12　けんきゅうの おかね</summary><div class="d-body">
-      <p>この けんきゅうは、ぼうえい いか だいがっこう かんご がっかの おかねで します。けんきゅうしゃと かいしゃ などとの とくべつな かんけいは ありません。</p>
+    <details><summary>12　<ruby>研究<rt>けんきゅう</rt></ruby>のお<ruby>金<rt>かね</rt></ruby></summary><div class="d-body">
+      <p>この<ruby>研究<rt>けんきゅう</rt></ruby>は、<ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>看護学科<rt>かんごがっか</rt></ruby>のお<ruby>金<rt>かね</rt></ruby>でします。<ruby>研究者<rt>けんきゅうしゃ</rt></ruby>と<ruby>会社<rt>かいしゃ</rt></ruby>などとの<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>関係<rt>かんけい</rt></ruby>はありません。</p>
     </div></details>
 
-    <details><summary>13　けっかの おしらせ</summary><div class="d-body">
-      <p>なまえを きかない ちょうさ なので、ひとり ひとりの けっかは おしらせ できません。ぜんたいの けっかを はっぴょう します。あなたの ことが わかる ように は しません。</p>
+    <details><summary>13　<ruby>結果<rt>けっか</rt></ruby>のお<ruby>知<rt>し</rt></ruby>らせ</summary><div class="d-body">
+      <p><ruby>名前<rt>なまえ</rt></ruby>を<ruby>聞<rt>き</rt></ruby>かない<ruby>調査<rt>ちょうさ</rt></ruby>なので、<ruby>一人<rt>ひとり</rt></ruby>ひとりの<ruby>結果<rt>けっか</rt></ruby>はお<ruby>知<rt>し</rt></ruby>らせできません。<ruby>全体<rt>ぜんたい</rt></ruby>の<ruby>結果<rt>けっか</rt></ruby>を<ruby>発表<rt>はっぴょう</rt></ruby>します。あなたのことが<ruby>分<rt>わ</rt></ruby>かるようにはしません。</p>
     </div></details>
 
-    <details><summary>14　おかね・おれい</summary><div class="d-body">
-      <p>スマホの つうしんりょう の ほかに、おかねは かかりません。おれいは ありません。</p>
+    <details><summary>14　お<ruby>金<rt>かね</rt></ruby>・お<ruby>礼<rt>れい</rt></ruby></summary><div class="d-body">
+      <p>スマホの<ruby>通信料<rt>つうしんりょう</rt></ruby>のほかに、お<ruby>金<rt>かね</rt></ruby>はかかりません。お<ruby>礼<rt>れい</rt></ruby>はありません。</p>
     </div></details>
 
-    <details><summary>れんらくさき</summary><div class="d-body contact">
-      <p>たんとう：いわま ゆうじ（ぼうえい いか だいがっこう かんご がっか）</p>
-      <p>じゅうしょ：〒359-8513 さいたまけん ところざわし なみき 3-2</p>
-      <p>メール：<a href="mailto:iwama@ndmc.ac.jp">iwama@ndmc.ac.jp</a>（にほんご・えいご）</p>
-      <p>せきにんしゃ：はやの きみこ（かんご がっか ちょう）</p>
+    <details><summary><ruby>連絡先<rt>れんらくさき</rt></ruby></summary><div class="d-body contact">
+      <p><ruby>担当<rt>たんとう</rt></ruby>：<ruby>岩間<rt>いわま</rt></ruby><ruby>裕司<rt>ゆうじ</rt></ruby>（<ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>看護学科<rt>かんごがっか</rt></ruby>）</p>
+      <p><ruby>住所<rt>じゅうしょ</rt></ruby>：〒359-8513 <ruby>埼玉県<rt>さいたまけん</rt></ruby><ruby>所沢市<rt>ところざわし</rt></ruby><ruby>並木<rt>なみき</rt></ruby>3-2</p>
+      <p>メール：<a href="mailto:iwama@ndmc.ac.jp">iwama@ndmc.ac.jp</a>（<ruby>日本語<rt>にほんご</rt></ruby>・<ruby>英語<rt>えいご</rt></ruby>）</p>
+      <p><ruby>責任者<rt>せきにんしゃ</rt></ruby>：<ruby>早野<rt>はやの</rt></ruby><ruby>貴美子<rt>きみこ</rt></ruby>（<ruby>看護学科長<rt>かんごがっかちょう</rt></ruby>）</p>
     </div></details>
-    <button class="open-all" onclick="openAll('easy')">ぜんぶ ひらく</button>
+    <button class="open-all" onclick="openAll('easy')"><ruby>全部<rt>ぜんぶ</rt></ruby><ruby>開<rt>ひら</rt></ruby>く</button>
   </section>
 
   <section class="consent">
-    <h2>こたえて みませんか？</h2>
-    <p class="sub">まず、うけつけ ばんごうを メモ して ください。</p>
+    <h2><ruby>答<rt>こた</rt></ruby>えてみませんか？</h2>
+    <p class="sub">まず、<ruby>受付番号<rt>うけつけばんごう</rt></ruby>をメモしてください。</p>
     <div class="ticket">
-      <div class="label">あなたの うけつけ ばんごう</div>
+      <div class="label">あなたの<ruby>受付番号<rt>うけつけばんごう</rt></ruby></div>
       <div class="rid random-id">--------</div>
       <button class="copy-btn" onclick="copyId(this,'easy')">コピー</button>
     </div>
-    <p class="id-warn">スクリーンショットを とるか、メモ して ください。<br>こたえを けしたい ときに ひつようです。</p>
-    <p class="id-note">この ばんごうで あなたが だれか は わかりません。</p>
+    <p class="id-warn">スクリーンショットを<ruby>撮<rt>と</rt></ruby>るか、メモしてください。<br><ruby>答<rt>こた</rt></ruby>えを<ruby>消<rt>け</rt></ruby>したいときに<ruby>必要<rt>ひつよう</rt></ruby>です。</p>
+    <p class="id-note">この<ruby>番号<rt>ばんごう</rt></ruby>であなたがだれかは<ruby>分<rt>わ</rt></ruby>かりません。</p>
     <div class="checks">
-      <label><input type="checkbox" class="chk-easy"><span>にほんご きょうしつに 2つ いじょう いっていても、こたえるのは <span class="once">1かい だけ</span> です。</span></label>
-      <label><input type="checkbox" class="chk-easy"><span>せつめいを よんで、もくてき・やりかた・じょうほうの まもりかたが わかりました。</span></label>
-      <label><input type="checkbox" class="chk-easy"><span>さんかは じゆうで、2028ねん 4がつ 30にち まで こたえを けせる こと（うけつけ ばんごうが ひつよう）が わかりました。</span></label>
-      <label><input type="checkbox" class="chk-easy"><span>うけつけ ばんごうを メモ しました。</span></label>
-      <label><input type="checkbox" class="chk-easy"><span>わたしは 18さい いじょうで、ところざわしに すんでいる、または ところざわしの にほんご きょうしつに きています。</span></label>
-       <label><input type="checkbox" class="chk-easy"><span>けんきゅうの せつめいが よく わかりました。だれにも いわれずに、じぶんで きめて、この けんきゅうに さんか します。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span><ruby>日本語<rt>にほんご</rt></ruby><ruby>教室<rt>きょうしつ</rt></ruby>に2つ<ruby>以上<rt>いじょう</rt></ruby><ruby>行<rt>い</rt></ruby>っていても、<ruby>答<rt>こた</rt></ruby>えるのは<span class="once"><ruby>1回<rt>かい</rt></ruby>だけ</span>です。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span><ruby>説明<rt>せつめい</rt></ruby>を<ruby>読<rt>よ</rt></ruby>んで、<ruby>目的<rt>もくてき</rt></ruby>・やり<ruby>方<rt>かた</rt></ruby>・<ruby>情報<rt>じょうほう</rt></ruby>の<ruby>守<rt>まも</rt></ruby>り<ruby>方<rt>かた</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かりました。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span><ruby>参加<rt>さんか</rt></ruby>は<ruby>自由<rt>じゆう</rt></ruby>で、<ruby>2028年<rt>ねん</rt></ruby><ruby>4月<rt>がつ</rt></ruby><ruby>30日<rt>にち</rt></ruby>まで<ruby>答<rt>こた</rt></ruby>えを<ruby>消<rt>け</rt></ruby>せること（<ruby>受付番号<rt>うけつけばんごう</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>）が<ruby>分<rt>わ</rt></ruby>かりました。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span><ruby>受付番号<rt>うけつけばんごう</rt></ruby>をメモしました。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span><ruby>私<rt>わたし</rt></ruby>は<ruby>18歳<rt>さい</rt></ruby><ruby>以上<rt>いじょう</rt></ruby>で、<ruby>所沢市<rt>ところざわし</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいる、または<ruby>所沢市<rt>ところざわし</rt></ruby>の<ruby>日本語<rt>にほんご</rt></ruby><ruby>教室<rt>きょうしつ</rt></ruby>に<ruby>来<rt>き</rt></ruby>ています。</span></label>
+      <label><input type="checkbox" class="chk-easy"><span><ruby>研究<rt>けんきゅう</rt></ruby>の<ruby>説明<rt>せつめい</rt></ruby>がよく<ruby>分<rt>わ</rt></ruby>かりました。だれにも<ruby>言<rt>い</rt></ruby>われずに、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>決<rt>き</rt></ruby>めて、この<ruby>研究<rt>けんきゅう</rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>します。</span></label>
     </div>
-    <a id="form-link-easy" class="go disabled" onclick="return checkConsent('easy');">アンケートを はじめる</a>
-    <p class="go-hint" id="hint-easy">6つ ぜんぶに チェックすると はじめられます。</p>
-    <a class="decline" onclick="window.close(); return false;">さんか しません（ページを とじる）</a>
+    <a id="form-link-easy" class="go disabled" onclick="return checkConsent('easy');">アンケートを<ruby>始<rt>はじ</rt></ruby>める</a>
+    <p class="go-hint" id="hint-easy">6つ<ruby>全部<rt>ぜんぶ</rt></ruby>にチェックすると<ruby>始<rt>はじ</rt></ruby>められます。</p>
+    <a class="decline" onclick="window.close(); return false;"><ruby>参加<rt>さんか</rt></ruby>しません（ページを<ruby>閉<rt>と</rt></ruby>じる）</a>
   </section>
 
-  <p class="foot">ぼうえい いか だいがっこう かんご がっか<br>ぼうえい いか だいがっこう りんり いいんかい しょうにん（No. ____）</p>
+  <p class="foot"><ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>看護学科<rt>かんごがっか</rt></ruby><br><ruby>防衛医科大学校<rt>ぼうえいいかだいがっこう</rt></ruby><ruby>倫理<rt>りんり</rt></ruby><ruby>委員会<rt>いいんかい</rt></ruby><ruby>承認<rt>しょうにん</rt></ruby>（No. ____）</p>
 </div>
 
 <script>
@@ -579,9 +589,12 @@
     en:   { url: 'https://docs.google.com/forms/d/e/1FAIpQLScZUaTCCDDOSdAYtu13pNm3ASDsq5C9fj_fAIe3tuXQPKv35g/viewform',   entry: 'entry.1375002129' },
     easy: { url: 'https://docs.google.com/forms/d/e/1FAIpQLSe6UGunDOyTpewzOlc7WYA8jx1H-B3D6nhuflObnaTn9nFPCg/viewform', entry: 'entry.316093019' }
   };
+  // Easy Japanese strings contain <ruby> markup, so they are written with innerHTML (not alert())
   const TXT = {
-    en:   { need: 'Please check all six boxes.', ready: 'You are ready. Thank you!', copied: 'Copied' },
-    easy: { need: '6つの □ に ぜんぶ チェックを いれて ください。', ready: 'じゅんび できました。ありがとう ございます！', copied: 'コピー しました' }
+    en:   { need: 'Please check all six boxes.', ready: 'You are ready. Thank you!', copied: 'Copied',
+            hint: 'Check all six boxes to start.' },
+    easy: { need: '6つの□に<ruby>全部<rt>ぜんぶ</rt></ruby>チェックを<ruby>入<rt>い</rt></ruby>れてください。', ready: '<ruby>準備<rt>じゅんび</rt></ruby>できました。ありがとうございます！', copied: 'コピーしました',
+            hint: '6つ<ruby>全部<rt>ぜんぶ</rt></ruby>にチェックすると<ruby>始<rt>はじ</rt></ruby>められます。' }
   };
 
   // 8-character random ID (excludes confusing characters 0/O/1/I/L)
@@ -608,13 +621,16 @@
   function updateButton(lang) {
     const all = Array.from(document.querySelectorAll('.chk-' + lang)).every(c => c.checked);
     document.getElementById('form-link-' + lang).classList.toggle('disabled', !all);
-    document.getElementById('hint-' + lang).textContent = all ? TXT[lang].ready :
-      (lang === 'en' ? 'Check all six boxes to start.' : '6つ ぜんぶに チェックすると はじめられます。');
+    const hint = document.getElementById('hint-' + lang);
+    hint.classList.remove('need');
+    hint.innerHTML = all ? TXT[lang].ready : TXT[lang].hint;
   }
 
   function checkConsent(lang) {
     if (document.getElementById('form-link-' + lang).classList.contains('disabled')) {
-      alert(TXT[lang].need);
+      const hint = document.getElementById('hint-' + lang);
+      hint.innerHTML = TXT[lang].need;
+      hint.classList.add('need');
       return false;
     }
     return true;
